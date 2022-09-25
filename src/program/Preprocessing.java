@@ -17,7 +17,7 @@ public class Preprocessing extends JFrame {
     JLabel lb1, lb2;
     JComboBox cb1, cb2;
     JButton openButton, saveButton;
-	JScrollPane logScrollPane = new JScrollPane(ta);
+	JScrollPane logScrollPane;
     
     public Preprocessing() {
         setTitle("Preprocessing Program");
@@ -41,18 +41,28 @@ public class Preprocessing extends JFrame {
 		cb1 = new JComboBox(DB_LIST);
 		String DB_NAME = cb1.getSelectedItem().toString();
 		
-		String[] TABLE_LIST = TableSelect(DB_NAME);
+		String[] TABLE_LIST = TableShow(DB_NAME);
 		lb2 = new JLabel("Table 선택 : ");
 		cb2 = new JComboBox(TABLE_LIST);
 		String TABLE_NAME = cb2.getSelectedItem().toString();
 
 		//이제 DB 바꾸면 Table 바뀌도록 설정해야함
 		
+		String[] TABLE_ROW = TableSelect(DB_NAME, TABLE_NAME);
+		
+		ta = new JTextArea(40, 80);
+		logScrollPane = new JScrollPane(ta, JScrollPane.VERTICAL_SCROLLBAR_ALWAYS, JScrollPane.HORIZONTAL_SCROLLBAR_ALWAYS);
+		
+		for (String row : TABLE_ROW) {
+			ta.append(row + "\n");
+			ta.setCaretPosition(ta.getDocument().getLength());
+		}
 		//add(buttonPanel, BorderLayout.PAGE_START);
 		add(lb1);
 		add(cb1);
 		add(lb2);
 		add(cb2);
+		add(logScrollPane);
 		
         setSize(1000,750);
         setVisible(true);
@@ -124,7 +134,7 @@ public class Preprocessing extends JFrame {
     
     
     
-    public static String[] TableSelect(String DB_NAME) {
+    public static String[] TableShow(String DB_NAME) {
 
 		Connection conn = DBconnect();
 		PreparedStatement pstmt = null;
@@ -161,6 +171,48 @@ public class Preprocessing extends JFrame {
 		System.out.println(Arrays.toString(TABLE_LIST));
 		
 		return TABLE_LIST;
+    }
+    
+    
+    public static String[] TableSelect(String DB_NAME, String TABLE_NAME) {
+
+		Connection conn = DBconnect();
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		StringBuffer sbf = new StringBuffer();
+		StringBuffer namedb = new StringBuffer();
+		StringBuffer nametable = new StringBuffer();
+		
+		try {
+			namedb.append("use ");
+			namedb.append(DB_NAME);
+			String sql = namedb.toString();
+			pstmt = conn.prepareStatement(sql);
+			rs = pstmt.executeQuery();
+			
+			nametable.append("select * from ");
+			nametable.append(TABLE_NAME);
+			sql = nametable.toString();
+			pstmt = conn.prepareStatement(sql);
+			rs = pstmt.executeQuery();
+			
+			while(rs.next()) { //rs.next()를 통해 다음행을 내려갈 수 있으면 true를 반환하고, 커서를 한칸 내린다. 다음행이 없으면 false를 반환한다.
+				// 이 부분도 나중에 바꿔야함, 바꾸는 김에 나중에 JTable으로 하기
+				sbf.append(rs.getString(1) + "\t\t" + rs.getInt(2) + "\t\t" + rs.getString(3));
+				sbf.append("\n");
+			}
+			
+		} catch (SQLException e) {
+			System.out.println("error: " + e);
+		}
+
+
+		String TABLE = sbf.toString();
+		System.out.println(TABLE);
+		String[] TABLE_ROW = TABLE.split("\n");
+		System.out.println(Arrays.toString(TABLE_ROW));
+		
+		return TABLE_ROW;
     }
     
     
