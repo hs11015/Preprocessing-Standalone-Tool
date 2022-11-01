@@ -1,5 +1,6 @@
 body {
     font-family: sans-serif;
+    background: #94B49F;
 }
 
 ul#topnav {
@@ -8,80 +9,153 @@ ul#topnav {
     display: table;
     padding: 0;
     overflow: hidden;
-    width: 60%;
+    width: 30%;
     position: absolute;
     bottom: 0;
 }
 
-ul#topnav li {
+
+ul#bottomnav {
+    list-style-type: none;
+    margin: 0 0 1% 1%;
+    display: table;
+    padding: 0;
+    overflow: hidden;
+    width: 40%;
+    position: absolute;
+    bottom: 0;
+}
+
+ul#sidenav {
+    list-style-type: none;
+    display: table;
+    padding: 0;
+    overflow: hidden;
+    width: 90%;
+    position: absolute;
+    bottom: 0;
+}
+
+ul#bottomnav li,
+ul#topnav li,
+ul#sidenav li {
     display: table-cell;
     text-align: center;
 }
 
-ul#topnav li a {
+
+ul#bottomnav li a,
+ul#topnav li a,
+ul#sidenav li a {
+    cursor: pointer;
     background: #333;
     color: #999;
-    border: none;
-    display: block;
-    margin-right: 5px;
-    padding: 5px 0px;
-    text-decoration: none;
-    font-size: 15px;
-}
-
-ul#topnav li a.active {
-    background: #fff;
-    color: #333;
-}
-
-ul#topnav li a.first {
-    background: rgb(255, 128, 128);
-    color: #111;
-}
-
-ul#topnav li a.second {
-    background: rgb(255, 196, 128);
-    color: #111;
-}
-
-ul#topnav li a.third {
-    background: rgb(252, 241, 141);
-    color: #111;
-}
-
-ul#topnav li a.fourth {
-    background: rgb(168, 255, 128);
-    color: #111;
-}
-
-ul#topnav li a.fifth {
-    background: rgb(177, 128, 255);
-    color: #111;
+    padding: 15px 25px;
+    display: inline-block;
+    border: 1px solid rgba(0,0,0,0.21);
+    border-bottom-color: rgba(0,0,0,0.34);
+    text-shadow:0 1px 0 rgba(0,0,0,0.15);
+    box-shadow: 0 1px 0 rgba(255,255,255,0.34) inset, 
+              0 2px 0 -1px rgba(0,0,0,0.13), 
+              0 3px 0 -1px rgba(0,0,0,0.08), 
+              0 3px 13px -1px rgba(0,0,0,0.21);
 }
 
 
-ul#topnav li a.plain {
+ul#bottomnav li a:active,
+ul#topnav li a:active,
+ul#sidenav li a:active {
+    top: 1px;
+    border-color: rgba(0,0,0,0.34) rgba(0,0,0,0.21) rgba(0,0,0,0.21);
+    box-shadow: 0 1px 0 rgba(255,255,255,0.89),0 1px rgba(0,0,0,0.05) inset;
+    position: relative;
+}
+
+
+ul#bottomnav li a.plain,
+ul#topnav li a.plain,
+ul#sidenav li a.plain {
     background: rgb(255, 255, 255);
     color: #111;
     border-style: groove;
 }
 
-ul#topnav li a.first:hover,
-ul#topnav li a.second:hover,
-ul#topnav li a.third:hover,
-ul#topnav li a.fourth:hover,
-ul#topnav li a.fifth:hover {
-    background: #33aaff;
+
+ul#topnav li a.first {
+    background-color: #BFD8B8;
+    /*background: #BFD8B8;*/
     color: #111;
 }
+
+ul#topnav li a.first:active {
+    background-color: #92bd87;
+    box-shadow: 0 0 0 1px #92bd87 inset,
+        0 0 0 2px rgba(255,255,255,0.15) inset,
+        0 0 0 1px rgba(0,0,0,0.4);
+}
+
+ul#topnav li a.first:hover {
+    background-color: #a1c697;
+}
+
+ul#topnav li a.second {
+    background-color: #CEE5D0;
+    color: #111;
+}
+
+ul#topnav li a.second:active {
+    background-color: #9ccaa0;
+    box-shadow: 0 0 0 1px #9ccaa0 inset,
+        0 0 0 2px rgba(255,255,255,0.15) inset,
+        0 0 0 1px rgba(0,0,0,0.4);
+}
+
+ul#topnav li a.second:hover {
+    background-color: #add3b0;
+}
+
+ul#topnav li a.third {
+    background-color: #FCF8E8;
+    color: #111;
+}
+
+ul#topnav li a.third:active {
+    background-color: #f3e3a4;
+    box-shadow: 0 0 0 1px #f3e3a4 inset,
+        0 0 0 2px rgba(255,255,255,0.15) inset,
+        0 0 0 1px rgba(0,0,0,0.4);
+}
+
+ul#topnav li a.third:hover {
+    background-color: #f6eabb;
+}
+
+
+ul#topnav li a.fourth {
+    background: #ECB390;
+    color: #111;
+}
+
+ul#topnav li a.fourth:active {
+    background-color: #e1864f;
+    box-shadow: 0 0 0 1px #e1864f inset,
+        0 0 0 2px rgba(255,255,255,0.15) inset,
+        0 0 0 1px rgba(0,0,0,0.4);
+}
+
+ul#topnav li a.fourth:hover {
+    background-color: #e59564;
+}
+
+
 
 #banner {
     position: relative;
     padding: 15px;
-    height: 20px;
+    height: 30px;
     border: 0px;
     color: #fff;
-    background: #33aaff;
+    background: #94B49F;
 }
 
 
@@ -89,20 +163,41 @@ ul#topnav li a.fifth:hover {
     padding: 10px 10px 10px 10px;
     margin: 0 0 0 0;
     width: auto;
-    height: 830px;
-    border-style: groove;
+    height: 800px;
     display: flex;
     flex-direction: row;
     justify-content: space-evenly;
+    background: #94B49F;
 }
 
 
 .sequence {
     flex-basis: 85%;
-    padding: 10px 10px 10px 10px;
+    padding: 0px 20px 5px 15px;
     height: auto;
     border-style: groove;
-    overflow: auto;
+    display: inline-block;
+    word-break:break-all;
+    overflow-x: hidden;
+    overflow-y: scroll;
+    background: #fff;
+    font-family: monospace; /*모든 글자의 길이와 너비 동일*/
+    line-height: 1.5; /*줄 간격*/
+    letter-spacing: 3px; /*글자 사이 너비*/
+}
+
+h1#target {
+    color: rgb(0,0,0);
+	/*color:rgba(255, 128, 128,0.5);50% 불투명도*/
+}
+h1#feature1{
+	color: #CEE5D0;
+}
+h1#feature2{
+	color: #FCF8E8;
+}
+h1#feature3{
+	color: #ECB390;
 }
 
 .sidebar {
@@ -110,14 +205,16 @@ ul#topnav li a.fifth:hover {
     height: auto;
     padding: 10px 10px 10px 10px;
     font-size: 20px;
-    border-style: groove;
     position: relative;
+    background: #fff;
+    /*visibility: hidden;*/
 }
+
 
 .toggle_button1{
     cursor: pointer;
     display: block;
-    background: rgb(255, 196, 128);
+    background: #CEE5D0;
     text-align: center;
     border: 1px solid #ccc;
 }
@@ -125,7 +222,7 @@ ul#topnav li a.fifth:hover {
 .toggle_button2{
     cursor: pointer;
     display: block;
-    background: rgb(252, 241, 141);
+    background: #FCF8E8;
     text-align: center;
     border: 1px solid #ccc;
 }
@@ -133,14 +230,7 @@ ul#topnav li a.fifth:hover {
 .toggle_button3{
     cursor: pointer;
     display: block;
-    background: rgb(168, 255, 128);
-    text-align: center;
-    border: 1px solid #ccc;
-}
-.toggle_button4 {
-    cursor: pointer;
-    display: block;
-    background: rgb(177, 128, 255);
+    background: #ECB390;
     text-align: center;
     border: 1px solid #ccc;
 }
@@ -148,7 +238,6 @@ ul#topnav li a.fifth:hover {
 #toggle_button1,
 #toggle_button2,
 #toggle_button3,
-#toggle_button4,
 #toggle_contents {
     height: 0;
     overflow: hidden;
@@ -158,8 +247,7 @@ ul#topnav li a.fifth:hover {
 
 #toggle_button1:checked+#toggle_contents,
 #toggle_button2:checked+#toggle_contents,
-#toggle_button3:checked+#toggle_contents,
-#toggle_button4:checked+#toggle_contents {
+#toggle_button3:checked+#toggle_contents {
     height: auto;
     position: relative;
     border: 1px solid #ccc;
@@ -177,4 +265,13 @@ ul#topnav li a.fifth:hover {
     line-height: 1;
     background: #555;
     color: #fff;
+}
+
+.fit-picture {
+    width: 20px;
+    height: 20px;
+}
+
+.hidden {
+    visibility: hidden;
 }

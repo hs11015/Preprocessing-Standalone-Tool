@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>TRIMEZ</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link rel="stylesheet" href="./src/styles.css" />
+</head>
+
+<body>
+  <div id="banner">
+    <ul id="topnav">
+      <li><a class="first">Mixture</a></li>
+      <li><a class="second" onclick="feature1()">Feature 1</a></li>
+      <li><a class="third" onclick="feature2()">Feature 2</a></li>
+      <li><a class="fourth" onclick="feature3()">Feature 3</a></li>
+    </ul>
+  </div>
+
+  <!--start containter-->
+  <div class="container">
+    <div class="sequence">
+      <div id="app"></div>
+    </div>
+
+    <div class="sidebar hidden">
+      <label for="toggle_button1" class="toggle_button1">Feature 1</label><input type="checkbox" id="toggle_button1">
+      <div id="toggle_contents">
+        <p>parameter input 1 : <input type="number" step="1"></p>
+        <p>parameter input 2 : <input type="number" step="1"></p><label for="toggle_button1"
+          class="close_button">X</label>
+      </div>
+
+      <label for="toggle_button2" class="toggle_button2">Feature 2</label><input type="checkbox" id="toggle_button2">
+      <div id="toggle_contents">
+        <p>parameter input 1 : <input type="number" step="1"></p>
+        <p>parameter input 2 : <input type="number" step="1"></p><label for="toggle_button2"
+          class="close_button">X</label>
+      </div>
+
+      <label for="toggle_button3" class="toggle_button3">Feature 3</label><input type="checkbox" id="toggle_button3">
+      <div id="toggle_contents">
+        <p>parameter input 1 : <input type="number" step="1"></p>
+        <p>parameter input 2 : <input type="number" step="1"></p><label for="toggle_button3"
+          class="close_button">X</label>
+      </div>
+
+      <ul id="sidenav">
+        <li><a class="plain"><img class="fit-picture" src="./img/highlighter_icon.png" alt="highlighting"></a></li>
+        <li><a class="plain"><img class="fit-picture" src="./img/scissors_tool_icon.png" alt="trimming"></a></li>
+      </ul>
+    </div>
+    
+  </div>
+  <!--end of container-->
+
+  <ul id="bottomnav">
+    <li><a class="plain" id="zoomIn" onclick="zoomIn()"><img class="fit-picture" src="./img/plus_icon.png" alt="+"></a></li>
+    <li><a class="plain">resoultion</a></li>
+    <li><a class="plain" id="zoomOut" onclick="zoomOut()"><img class="fit-picture" src="./img/minus_icon.png" alt="-"></a></li>
+    <li><a class="plain">ref : e.g. human</a></li>
+    <li><a class="plain">try : e.g. dog</a></li>
+  </ul>
+
+  <script src="src/index.js"></script>
+</body>
+
+</html>
