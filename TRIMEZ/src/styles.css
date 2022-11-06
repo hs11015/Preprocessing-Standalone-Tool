@@ -9,7 +9,7 @@ ul#topnav {
     display: table;
     padding: 0;
     overflow: hidden;
-    width: 30%;
+    width: 55%;
     position: absolute;
     bottom: 0;
 }
@@ -17,11 +17,11 @@ ul#topnav {
 
 ul#bottomnav {
     list-style-type: none;
-    margin: 0 0 1% 1%;
+    margin: 0 0 0% 1%;
     display: table;
     padding: 0;
     overflow: hidden;
-    width: 40%;
+    width: 50%;
     position: absolute;
     bottom: 0;
 }
@@ -80,6 +80,23 @@ ul#sidenav li a.plain {
     border-style: groove;
 }
 
+
+ul#bottomnav li a.plain:active,
+ul#topnav li a.plain:active,
+ul#sidenav li a.plain:active {
+    background: rgb(190, 190, 190);
+    color: #111;
+    border-style: groove;
+}
+
+
+ul#bottomnav li a.plain:hover,
+ul#topnav li a.plain:hover,
+ul#sidenav li a.plain:hover {
+    background: rgb(216, 216, 216);
+    color: #111;
+    border-style: groove;
+}
 
 ul#topnav li a.first {
     background-color: #BFD8B8;
@@ -148,6 +165,21 @@ ul#topnav li a.fourth:hover {
 }
 
 
+ul#topnav li a.fifth {
+    background: #eca290;
+    color: #111;
+}
+
+ul#topnav li a.fifth:active {
+    background-color: #e16c4f;
+    box-shadow: 0 0 0 1px #e16c4f inset,
+        0 0 0 2px rgba(255,255,255,0.15) inset,
+        0 0 0 1px rgba(0,0,0,0.4);
+}
+
+ul#topnav li a.fifth:hover {
+    background-color: #e16c4f;
+}
 
 #banner {
     position: relative;
@@ -163,7 +195,7 @@ ul#topnav li a.fourth:hover {
     padding: 10px 10px 10px 10px;
     margin: 0 0 0 0;
     width: auto;
-    height: 800px;
+    height: 780px;
     display: flex;
     flex-direction: row;
     justify-content: space-evenly;
@@ -187,17 +219,30 @@ ul#topnav li a.fourth:hover {
 }
 
 h1#target {
-    color: rgb(0,0,0);
+    display: inline;
+    color: rgb(68, 68, 68);
+    opacity: 50%;
 	/*color:rgba(255, 128, 128,0.5);50% 불투명도*/
 }
 h1#feature1{
-	color: #CEE5D0;
+    display: inline;
+	background-color: #add3b0;
+    opacity: 75%;
 }
 h1#feature2{
-	color: #FCF8E8;
+    display: inline;
+	background-color: #f3e3a4;
+    opacity: 75%;
 }
 h1#feature3{
-	color: #ECB390;
+    display: inline;
+	background-color: #ECB390;
+    opacity: 75%;
+}
+h1#highlight{
+    display: inline;
+	background-color: #fffb00;
+    opacity: 75%;
 }
 
 .sidebar {
@@ -238,16 +283,18 @@ h1#feature3{
 #toggle_button1,
 #toggle_button2,
 #toggle_button3,
-#toggle_contents {
+#toggle_contents1,
+#toggle_contents2,
+#toggle_contents3 {
     height: 0;
     overflow: hidden;
     position: absolute;
     font-size: 15px;
 }
 
-#toggle_button1:checked+#toggle_contents,
-#toggle_button2:checked+#toggle_contents,
-#toggle_button3:checked+#toggle_contents {
+#toggle_button1:checked+#toggle_contents1,
+#toggle_button2:checked+#toggle_contents2,
+#toggle_button3:checked+#toggle_contents3 {
     height: auto;
     position: relative;
     border: 1px solid #ccc;
@@ -275,3 +322,4 @@ h1#feature3{
 .hidden {
     visibility: hidden;
 }
+

@@ -12,10 +12,12 @@
 <body>
   <div id="banner">
     <ul id="topnav">
-      <li><a class="first">Mixture</a></li>
-      <li><a class="second" onclick="feature1()">Feature 1</a></li>
-      <li><a class="third" onclick="feature2()">Feature 2</a></li>
-      <li><a class="fourth" onclick="feature3()">Feature 3</a></li>
+      <li><a class="first" onclick="targetgene()">TRIMEZ</a></li>
+      <li><a class="second" onclick="feature1()">Exon Intron Region</a></li>
+      <li><a class="third" onclick="feature2()">CpG Region</a></li>
+      <li><a class="fourth" onclick="feature3()">Simple Repeats Region</a></li>
+      <li><a class="fifth" onclick="feature4()">phastCons Graph</a></li>
+      <li><a class="plain" onclick="DLEB()">DLEB</a></li>
     </ul>
   </div>
 
@@ -25,44 +27,40 @@
       <div id="app"></div>
     </div>
 
-    <div class="sidebar hidden">
-      <label for="toggle_button1" class="toggle_button1">Feature 1</label><input type="checkbox" id="toggle_button1">
-      <div id="toggle_contents">
-        <p>parameter input 1 : <input type="number" step="1"></p>
-        <p>parameter input 2 : <input type="number" step="1"></p><label for="toggle_button1"
-          class="close_button">X</label>
+    <div class="sidebar">
+      <label for="toggle_button1" class="toggle_button1" onclick="exonLocfunc()">Exon Intron</label><input type="checkbox" id="toggle_button1">
+      <div id="toggle_contents1">
       </div>
 
-      <label for="toggle_button2" class="toggle_button2">Feature 2</label><input type="checkbox" id="toggle_button2">
-      <div id="toggle_contents">
-        <p>parameter input 1 : <input type="number" step="1"></p>
-        <p>parameter input 2 : <input type="number" step="1"></p><label for="toggle_button2"
-          class="close_button">X</label>
+      <label for="toggle_button2" class="toggle_button2" onclick="coordinateLocfunc()">CpG</label><input type="checkbox" id="toggle_button2">
+      <div id="toggle_contents2">
       </div>
 
-      <label for="toggle_button3" class="toggle_button3">Feature 3</label><input type="checkbox" id="toggle_button3">
-      <div id="toggle_contents">
+      <label for="toggle_button3" class="toggle_button3">Simple Repeats</label><input type="checkbox" id="toggle_button3">
+      <div id="toggle_contents3">
         <p>parameter input 1 : <input type="number" step="1"></p>
         <p>parameter input 2 : <input type="number" step="1"></p><label for="toggle_button3"
           class="close_button">X</label>
       </div>
 
       <ul id="sidenav">
-        <li><a class="plain"><img class="fit-picture" src="./img/highlighter_icon.png" alt="highlighting"></a></li>
-        <li><a class="plain"><img class="fit-picture" src="./img/scissors_tool_icon.png" alt="trimming"></a></li>
+        <li><a class="plain"><img class="fit-picture" src="./img/highlighter_icon.png" alt="highlighting" onclick="highlighter()"></a></li>
+        <li><a class="plain"><img class="fit-picture" src="./img/scissors_tool_icon.png" alt="trimming" onclick="trimming()"></a></li>
       </ul>
     </div>
     
   </div>
   <!--end of container-->
 
-  <ul id="bottomnav">
-    <li><a class="plain" id="zoomIn" onclick="zoomIn()"><img class="fit-picture" src="./img/plus_icon.png" alt="+"></a></li>
-    <li><a class="plain">resoultion</a></li>
-    <li><a class="plain" id="zoomOut" onclick="zoomOut()"><img class="fit-picture" src="./img/minus_icon.png" alt="-"></a></li>
-    <li><a class="plain">ref : e.g. human</a></li>
-    <li><a class="plain">try : e.g. dog</a></li>
-  </ul>
+  <div id="banner">
+    <ul id="bottomnav">
+      <li><a class="plain" id="zoomIn" onclick="zoomIn()"><img class="fit-picture" src="./img/plus_icon.png" alt="+"></a></li>
+      <li><a class="plain">resoultion</a></li>
+      <li><a class="plain" id="zoomOut" onclick="zoomOut()"><img class="fit-picture" src="./img/minus_icon.png" alt="-"></a></li>
+      <li><a class="plain">ref gene : human</a></li>
+      <li><a class="plain">try gene : <input type="file" onchange="previewFile()" /></a></li>
+    </ul>
+  </div>
 
   <script src="src/index.js"></script>
 </body>
